@@ -1,16 +1,11 @@
 package com.example.super_springboot;
 
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
 import java.util.List;
-
 
 @RestController
 public class MyController {
@@ -19,8 +14,6 @@ public class MyController {
 
     @Autowired
     private UserRepository userRepository;
-
-
 
     @GetMapping("/")
     public String home() {
@@ -32,26 +25,20 @@ public class MyController {
         return "Greetings from mycontroller";
     }
 
-    /*
-    @GetMapping(path="/all1")
-    public List<username_password> getAllUsers1() {
-        return userService.findAll();
-    }
-     */
-
     @GetMapping(path="/checkdb")
-    public List<username_password> getAllUsers2() {
-        return (List<username_password>) userRepository.findAll();
+    public List<SQL1> getAllUsers2() {
+
+        List<SQL1> retval = new ArrayList<>();
+        SQL1 sql_obj = new SQL1();
+        List<ADODB_LOGSQL> list_obj = (List<ADODB_LOGSQL>) userRepository.Get_SQL0_SQL1();
+
+        for (int i = 0 ; i < list_obj.size() ; i++) {
+            sql_obj.setSQL1(list_obj.get(i).getSQL1());
+            retval.add(sql_obj);
+        }
+
+     return retval;
     }
-
-    @PostMapping(path="/mock")
-    public ResponseEntity<MockReturn> getMock() {
-        NestedData justdata= new NestedData(getAllUsers2(),getAllUsers2());
-        MockReturn mock = new MockReturn(16,"test", 5, justdata );
-        return ResponseEntity.status(HttpStatus.CREATED).contentType(MediaType.APPLICATION_JSON).body(mock);
-    }
-
-
 }
 
 

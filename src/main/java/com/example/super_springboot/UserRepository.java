@@ -1,18 +1,14 @@
 package com.example.super_springboot;
 
-import com.example.super_springboot.username_password;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import com.example.super_springboot.UserRepository;
+import org.springframework.data.jpa.repository.Query;
 
 
-import java.util.Optional;
+import java.util.Collection;
 
 
-public interface UserRepository extends JpaRepository<username_password, Integer> {
+public interface UserRepository extends JpaRepository<ADODB_LOGSQL, Integer> {
 
-
+    @Query(value = "SELECT TIMER, SQL0, SQL1 FROM ADODB_LOGSQL", nativeQuery = true)
+    Collection<ADODB_LOGSQL> Get_SQL0_SQL1();
 }
