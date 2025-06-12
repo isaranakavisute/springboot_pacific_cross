@@ -9,11 +9,11 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private ADODB_LOGSQLRepository ADODB_LOGSQLRepository;
     public List<ADODB_LOGSQL> findAll()
     {
-        return (List<ADODB_LOGSQL>) userRepository.findAll();
+        return (List<ADODB_LOGSQL>) ADODB_LOGSQLRepository.findAll();
     }
-    public List<ADODB_LOGSQL> Get_SQL0_SQL1() { return (List<ADODB_LOGSQL>) userRepository.Get_SQL0_SQL1(); }
+    public List<ADODB_LOGSQL> Get_SQL0_SQL1() { return (List<ADODB_LOGSQL>) ADODB_LOGSQLRepository.Get_SQL0_SQL1(); }
 
 }

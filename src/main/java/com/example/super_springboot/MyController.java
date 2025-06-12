@@ -13,7 +13,7 @@ public class MyController {
     private UserService userService;
 
     @Autowired
-    private UserRepository userRepository;
+    private ADODB_LOGSQLRepository ADODB_LOGSQLRepository;
 
     @GetMapping("/")
     public String home() {
@@ -30,7 +30,7 @@ public class MyController {
 
         List<SQL1> retval = new ArrayList<>();
         SQL1 sql_obj = new SQL1();
-        List<ADODB_LOGSQL> list_obj = (List<ADODB_LOGSQL>) userRepository.Get_SQL0_SQL1();
+        List<ADODB_LOGSQL> list_obj = (List<ADODB_LOGSQL>) ADODB_LOGSQLRepository.Get_SQL0_SQL1();
 
         for (int i = 0 ; i < list_obj.size() ; i++) {
             sql_obj.setSQL1(list_obj.get(i).getSQL1());
