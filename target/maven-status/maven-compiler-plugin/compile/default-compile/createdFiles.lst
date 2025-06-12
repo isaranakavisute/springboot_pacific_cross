@@ -1,6 +1,1 @@
-com\example\super_springboot\SQL1.class
-com\example\super_springboot\UserService.class
-com\example\super_springboot\ADODB_LOGSQLRepository.class
-com\example\super_springboot\ADODB_LOGSQL.class
-com\example\super_springboot\MyController.class
-com\example\super_springboot\SuperSpringbootApplication.class
+com/example/super_springboot/ADODB_LOGSQLRepository.class
