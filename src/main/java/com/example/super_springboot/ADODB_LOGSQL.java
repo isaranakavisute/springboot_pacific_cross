@@ -9,10 +9,19 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ADODB_LOGSQL {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TIMER")
     private Integer TIMER;
+
+//    @Id
+//    @Column(name = "ROWID")
+//    private String ROWID;
+
+//    @Id
+//    @Column(name="ROWID")
+//    private String rowId;
 
     @Column(name = "SQL0")
     private String SQL0;

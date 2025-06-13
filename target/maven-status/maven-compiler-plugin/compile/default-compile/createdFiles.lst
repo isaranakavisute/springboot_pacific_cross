@@ -1,1 +1,16 @@
-com/example/super_springboot/ADODB_LOGSQLRepository.class
+com\example\super_springboot\MR_MEMBER_PLAN_Repository.class
+com\example\super_springboot\MrPolicy.class
+com\example\super_springboot\PD_PLAN_Repository.class
+com\example\super_springboot\MrPolicyholder.class
+com\example\super_springboot\MR_POLICY_PLAN_Repository.class
+com\example\super_springboot\ADODB_LOGSQLRepository1.class
+com\example\super_springboot\member_info.class
+com\example\super_springboot\PdPlan.class
+com\example\super_springboot\MrMember.class
+com\example\super_springboot\MrMemberPlan.class
+com\example\super_springboot\MR_MEMBER_Repository.class
+com\example\super_springboot\MR_POLICY_HOLDER_Repository.class
+com\example\super_springboot\MR_POLICY_Repository.class
+com\example\super_springboot\MrPolicyPlan.class
+com\example\super_springboot\SySysCode.class
+com\example\super_springboot\PdBenScheTemplate.class
