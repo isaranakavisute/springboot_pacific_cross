@@ -7,7 +7,7 @@ import java.util.Collection;
 
 public interface PD_PLAN_Repository extends JpaRepository<PdPlan, Integer> {
 
-    @Query(value = "SELECT PLAN_OID, PLAN_ID, PLAN_NO FROM PD_PLAN where PLAN_OID=:PLAN_OID", nativeQuery = true)
+    @Query(value = "SELECT PLAN_OID, PLAN_ID,PLAN_NO,PLAN_DESC FROM PD_PLAN where PLAN_OID=:PLAN_OID", nativeQuery = true)
     Collection<PdPlan> get_PLAN_ID(Long PLAN_OID);
 }
 

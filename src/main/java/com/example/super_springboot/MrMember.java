@@ -56,6 +56,9 @@ public class MrMember {
     @Column(name = "CUSM_REF_NO")
     private String CUSM_REF_NO;
 
+    @Column(name = "PLAN_NO")
+    private String PLAN_NO;
+
 
 
 

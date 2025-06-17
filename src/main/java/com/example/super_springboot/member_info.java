@@ -36,6 +36,11 @@ public class member_info {
     private String ref_policyno;
     private String policy_type;
     private String member_refno;
+    private Long POBE_OID;
+    private Long PLBE_OID;
+    private Long BEHD_OID;
+    private String BEN_HEAD;
+    private String coverage;
 
 
 
@@ -70,6 +75,11 @@ public class member_info {
         this.ref_policyno = "";
         this.policy_type = "";
         this.member_refno = "";
+        this.POBE_OID = (long) 0;
+        this.PLBE_OID = (long) 0;
+        this.BEHD_OID = (long) 0;
+        this.BEN_HEAD = "";
+        this.coverage = "";
 
     }
 

@@ -8,7 +8,6 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Nationalized;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -16,23 +15,13 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "PD_PLAN")
-public class PdPlan {
+@Table(name = "MR_POLICY_PLAN_BENEFIT")
+public class MrPolicyPlanBenefit {
     @Id
-    @Column(name = "PLAN_OID", nullable = false)
+    @Column(name = "POBE_OID", nullable = false)
     private Long id;
 
-    @Size(max = 4)
-    @NotNull
-    @Column(name = "PLAN_ID", nullable = false, length = 4)
-    private String planId;
-
-    @Column(name = "PLAN_NO", nullable = false)
-    private String plan_no;
-
-    @Column(name = "PLAN_DESC", nullable = false)
-    private String plan_desc;
-
-
+    @Column(name = "PLBE_OID", nullable = false)
+    private Long PLBE_OID;
 
 }

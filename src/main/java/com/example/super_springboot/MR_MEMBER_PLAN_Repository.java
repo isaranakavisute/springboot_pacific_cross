@@ -12,4 +12,7 @@ public interface MR_MEMBER_PLAN_Repository extends JpaRepository<MrMemberPlan, I
 
     @Query(value = "SELECT MEPL_OID,MEMB_OID,POPL_OID,EFF_DATE,EXP_DATE FROM MR_MEMBER_PLAN where MEMB_OID=:MEMB_OID", nativeQuery = true)
     Collection<MrMemberPlan> get_POPL_OID(Long MEMB_OID);
+
+    @Query(value = "SELECT MEPL_OID,MEMB_OID,POPL_OID,EFF_DATE,EXP_DATE FROM MR_MEMBER_PLAN where MEMB_OID=:MEMB_OID", nativeQuery = true)
+    Collection<MrMemberPlan> get_MEPL_OID(Long MEMB_OID);
 }
