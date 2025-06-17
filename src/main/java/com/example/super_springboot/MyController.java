@@ -87,10 +87,12 @@ public class MyController {
     @PostMapping(path="/inquiry_personal_information")
     public member_info inquiry_personal_information(@RequestParam Map<String, String> requestParams) {
 
-        String MBR_NO = requestParams.get("MBR_NO");
+        //String MBR_NO = requestParams.get("MBR_NO");
+        String ID_CARD_NO = requestParams.get("ID_CARD_NO");
+        //String TIN = requestParams.get("TIN");
         member_info member_info_obj = new member_info();
 
-        List<MrMember> member_obj = (List<MrMember>) mr_member_repository.get_MEMB_OID(MBR_NO);
+        List<MrMember> member_obj = (List<MrMember>) mr_member_repository.get_MEMB_OID(ID_CARD_NO);
         if (member_obj.size() >= 1)
         {
             member_info_obj.setMember_no(member_obj.get(0).getMbrNo());
@@ -175,11 +177,11 @@ public class MyController {
 
     @PostMapping(path="/inquiry_benefit")
     public member_info inquiry_benefit(@RequestParam Map<String, String> requestParams) {
-
-        String MBR_NO = requestParams.get("MBR_NO");
+        //String MBR_NO = requestParams.get("MBR_NO");
+        String ID_CARD_NO = requestParams.get("ID_CARD_NO");
+        //String TIN = requestParams.get("TIN");
         member_info member_info_obj = new member_info();
-
-        List<MrMember> member_obj = (List<MrMember>) mr_member_repository.get_MEMB_OID(MBR_NO);
+        List<MrMember> member_obj = (List<MrMember>) mr_member_repository.get_MEMB_OID(ID_CARD_NO);
         if (member_obj.size() >= 1)
         {
             member_info_obj.setMember_no(member_obj.get(0).getMbrNo());

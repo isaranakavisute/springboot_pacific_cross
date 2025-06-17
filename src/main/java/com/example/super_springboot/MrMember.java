@@ -53,14 +53,13 @@ public class MrMember {
     @Column(name = "ID_CARD_NO")
     private String ID_CARD_NO;
 
+    @Column(name = "TIN")
+    private String TIN;
+
     @Column(name = "CUSM_REF_NO")
     private String CUSM_REF_NO;
 
     @Column(name = "PLAN_NO")
     private String PLAN_NO;
-
-
-
-
 
 }
