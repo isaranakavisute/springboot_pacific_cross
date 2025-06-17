@@ -50,6 +50,12 @@ public class MyController {
     @Autowired
     private PD_BEN_HEAD_Repository pd_ben_head_repository;
 
+    @Autowired
+    private CL_CLAIM_Repository cl_claim_repository;
+
+    @Autowired
+    private CL_LINE_Repository cl_line_repository;
+
     @GetMapping("/")
     public String home() {
         return "Greetings from Spring Boot!";
@@ -159,17 +165,6 @@ public class MyController {
             {
                 return member_info_obj;
             }
-
-//            List<MrPolicy> policy_obj = (List<MrPolicy>) mr_policy_repository.get_policy_no(member_obj.get(0).getPohoOid());
-//            if (policy_obj.size() >= 1)
-//            {
-//                member_info_obj.setPolicy_no(policy_obj.get(0).getPocyNo());
-//            }
-//            else
-//            {
-//                return member_info_obj;
-//            }
-
             return member_info_obj;
         }
         else
@@ -256,12 +251,6 @@ public class MyController {
                     return member_info_obj;
                 }
 
-
-
-
-
-
-
                 List<MrPolicyPlan> policy_plan_obj = (List<MrPolicyPlan>) my_policy_plan_repository.get_POCY_OID(member_plan_obj.get(0).getPoplOid());
                 if (policy_plan_obj.size() >= 1)
                 {
@@ -307,31 +296,11 @@ public class MyController {
                 {
                     return member_info_obj;
                 }
-
-
-
-
-
-
-
-
-
             }
             else
             {
                 return member_info_obj;
             }
-
-//            List<MrPolicy> policy_obj = (List<MrPolicy>) mr_policy_repository.get_policy_no(member_obj.get(0).getPohoOid());
-//            if (policy_obj.size() >= 1)
-//            {
-//                member_info_obj.setPolicy_no(policy_obj.get(0).getPocyNo());
-//            }
-//            else
-//            {
-//                return member_info_obj;
-//            }
-
             return member_info_obj;
         }
         else
@@ -339,6 +308,92 @@ public class MyController {
             return member_info_obj;
         }
     }
+
+    @PostMapping(path="/inquiry_claim_header")
+    public claim_info inquiry_claim_header(@RequestParam Map<String, String> requestParams) {
+
+        String CLAIM_NO = requestParams.get("CLAIM_NO");
+        claim_info claim_info_obj = new claim_info();
+
+        List<ClClaim> claim_obj = (List<ClClaim>) cl_claim_repository.get_CL_CLaim(CLAIM_NO);
+        if (claim_obj.size() >= 1) {
+            claim_info_obj.setClaim_no(claim_obj.get(0).getClNo());
+            claim_info_obj.setStatus(claim_obj.get(0).getScmaOidClStatus());
+            claim_info_obj.setStatus_th(claim_obj.get(0).getScmaOidClStatus());
+            List<ClLine> cline_obj = (List<ClLine>) cl_line_repository.get_CL_Line(claim_obj.get(0).getId());
+            if (claim_obj.size() >= 1)
+            {
+                claim_info_obj.setStart(cline_obj.get(0).getIncurDateFrom().toString());
+                claim_info_obj.setFinish(cline_obj.get(0).getIncurDateTo().toString());
+                claim_info_obj.setClaim_type(cline_obj.get(0).getScmaOidClType());
+                claim_info_obj.setBilled(cline_obj.get(0).getPresAmt());
+                claim_info_obj.setAccepted(cline_obj.get(0).getAppAmt());
+                claim_info_obj.setUnpaid(claim_info_obj.getBilled().subtract(claim_info_obj.getAccepted()));
+                claim_info_obj.setCash_member(cline_obj.get(0).getPriorPaid());
+                claim_info_obj.setTotal_paid(cline_obj.get(0).getPayAmt());
+                claim_info_obj.setCoverage(cline_obj.get(0).getScmaOidBedType());
+                claim_info_obj.setPayment_date(cline_obj.get(0).getPayDate().toString());
+                claim_info_obj.setStatus_code(cline_obj.get(0).getScmaOidClLineStatus());
+                claim_info_obj.setPay_to(cline_obj.get(0).getPayee());
+            }
+            else
+            {
+                return claim_info_obj;
+            }
+        }
+        else
+        {
+            return claim_info_obj;
+        }
+
+        return claim_info_obj;
+    }
+
+    @PostMapping(path="/inquiry_claim_detail")
+    public claim_info inquiry_claim_detail(@RequestParam Map<String, String> requestParams) {
+
+        String CLAIM_NO = requestParams.get("CLAIM_NO");
+        claim_info claim_info_obj = new claim_info();
+
+        List<ClClaim> claim_obj = (List<ClClaim>) cl_claim_repository.get_CL_CLaim(CLAIM_NO);
+        if (claim_obj.size() >= 1) {
+            claim_info_obj.setClaim_id(claim_obj.get(0).getId());
+            claim_info_obj.setClaim_no(claim_obj.get(0).getClNo());
+            claim_info_obj.setStatus(claim_obj.get(0).getScmaOidClStatus());
+            claim_info_obj.setStatus_th(claim_obj.get(0).getScmaOidClStatus());
+            List<ClLine> cline_obj = (List<ClLine>) cl_line_repository.get_CL_Line(claim_obj.get(0).getId());
+            if (claim_obj.size() >= 1)
+            {
+                claim_info_obj.setStart(cline_obj.get(0).getIncurDateFrom().toString());
+                claim_info_obj.setFinish(cline_obj.get(0).getIncurDateTo().toString());
+                claim_info_obj.setClaim_type(cline_obj.get(0).getScmaOidClType());
+                claim_info_obj.setBilled(cline_obj.get(0).getPresAmt());
+                claim_info_obj.setAccepted(cline_obj.get(0).getAppAmt());
+                claim_info_obj.setUnpaid(claim_info_obj.getBilled().subtract(claim_info_obj.getAccepted()));
+                claim_info_obj.setCash_member(cline_obj.get(0).getPriorPaid());
+                claim_info_obj.setTotal_paid(cline_obj.get(0).getPayAmt());
+                claim_info_obj.setCoverage(cline_obj.get(0).getScmaOidBedType());
+                claim_info_obj.setPayment_date(cline_obj.get(0).getPayDate().toString());
+                claim_info_obj.setStatus_code(cline_obj.get(0).getScmaOidClLineStatus());
+                claim_info_obj.setPay_to(cline_obj.get(0).getPayee());
+                claim_info_obj.setBenefit_description(cline_obj.get(0).getScmaOidBedType());
+            }
+            else
+            {
+                return claim_info_obj;
+            }
+        }
+        else
+        {
+            return claim_info_obj;
+        }
+        return claim_info_obj;
+    }
+
+
+
+
+
 
 
 

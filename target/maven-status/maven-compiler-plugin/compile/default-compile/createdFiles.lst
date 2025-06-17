@@ -1,3 +1,5 @@
+com\example\super_springboot\CL_LINE_Repository.class
+com\example\super_springboot\claim_info.class
 com\example\super_springboot\MR_MEMBER_PLAN_Repository.class
 com\example\super_springboot\MrMemberPlanBenefit.class
 com\example\super_springboot\ADODB_LOGSQLRepository1.class
@@ -7,9 +9,11 @@ com\example\super_springboot\MR_POLICY_HOLDER_Repository.class
 com\example\super_springboot\PD_BEN_HEAD_Repository.class
 com\example\super_springboot\PD_PLAN_BENEFIT_Repository.class
 com\example\super_springboot\MrPolicyPlan.class
+com\example\super_springboot\ClClaim.class
 com\example\super_springboot\PdBenHead.class
 com\example\super_springboot\MrPolicyPlanBenefit.class
 com\example\super_springboot\MrPolicy.class
+com\example\super_springboot\CL_CLAIM_Repository.class
 com\example\super_springboot\PD_PLAN_Repository.class
 com\example\super_springboot\MR_POLICY_PLAN_BENEFIT_Repository.class
 com\example\super_springboot\PdPlanBenefit.class
@@ -19,6 +23,7 @@ com\example\super_springboot\MR_POLICY_PLAN_Repository.class
 com\example\super_springboot\member_info.class
 com\example\super_springboot\MrMember.class
 com\example\super_springboot\MR_MEMBER_Repository.class
+com\example\super_springboot\ClLine.class
 com\example\super_springboot\MR_POLICY_Repository.class
 com\example\super_springboot\SySysCode.class
 com\example\super_springboot\MR_MEMBER_PLAN_BENEFIT_Repository.class
